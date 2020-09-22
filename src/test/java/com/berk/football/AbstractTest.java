@@ -19,7 +19,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @SpringBootTest(classes = GameController.class)
 @WebAppConfiguration
 public abstract class AbstractTest {
+    @Autowired
     protected MockMvc mvc;
+
     @Autowired
     WebApplicationContext webApplicationContext;
 
