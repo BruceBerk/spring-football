@@ -18,7 +18,7 @@ public class GameController {
     private static final Map<String, String> diceMap = new HashMap<>();
 
     @GetMapping("/roll")
-    public ResponseEntity<Object> roll() {
+    public Map<String, String> roll() {
         //List<String> dice = new ArrayList<>();
 
         int whiteDie = randomGenerator.nextInt(6) + 1;
@@ -46,6 +46,6 @@ public class GameController {
             diceMap.put("black", "X");
         }
 
-        return new ResponseEntity<>(diceMap, HttpStatus.OK);
+        return diceMap;
     }
 }
