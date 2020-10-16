@@ -12,11 +12,22 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import static springfox.documentation.builders.PathSelectors.ant;
 
 @SpringBootApplication
+@EnableSwagger2
 public class FootballApplication {
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(FootballApplication.class, args);
+	}
+
+	@Bean
+	public Docket swagger() {
+		return new Docket(DocumentationType.SWAGGER_2)
+				.select()
+				.apis(RequestHandlerSelectors.any())
+				//.paths(ant("/api/**/*"))
+				.paths(PathSelectors.any())
+				.build();
 	}
 
 }
